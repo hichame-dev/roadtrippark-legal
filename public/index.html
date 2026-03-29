@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoadTripPark</title>
+
+  <script defer src="/__/firebase/12.9.0/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/12.9.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F5F0E8;
+      color: #1A1B25;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .logo-img {
+      width: 160px;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1A1B25;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6B7280;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .email-display {
+      font-weight: 600;
+      color: #1A1B25;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #6B7280;
+      margin-bottom: 6px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 14px 48px 14px 16px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 14px;
+      font-size: 16px;
+      font-family: inherit;
+      color: #1A1B25;
+      background: #FFFFFF;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input[type="password"]:focus {
+      border-color: #E4D5B7;
+      box-shadow: 0 0 0 3px rgba(228, 213, 183, 0.2);
+    }
+
+    input[type="password"].error {
+      border-color: #EF4444;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #9CA3AF;
+      padding: 4px;
+    }
+
+    .error-text {
+      color: #EF4444;
+      font-size: 13px;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .error-text.visible { display: block; }
+
+    .password-strength {
+      height: 4px;
+      border-radius: 2px;
+      background: #E5E7EB;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .password-strength-bar {
+      height: 100%;
+      border-radius: 2px;
+      width: 0;
+      transition: width 0.3s, background 0.3s;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-primary {
+      background: #E4D5B7;
+      color: #1A1B25;
+    }
+
+    .btn-primary:hover:not(:disabled) { opacity: 0.9; }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid rgba(26, 27, 37, 0.2);
+      border-top-color: #1A1B25;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .status-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #6B7280;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover { color: #1A1B25; }
+
+    /* States */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    @media (max-width: 480px) {
+      .container { padding: 32px 24px; border-radius: 20px; }
+      body { padding: 16px; align-items: flex-start; padding-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Loading -->
+    <div id="screen-loading" class="screen active">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <div style="margin: 16px auto;"><span class="spinner"></span></div>
+      <p class="subtitle">Chargement...</p>
+    </div>
+
+    <!-- Reset form -->
+    <div id="screen-reset" class="screen">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <h1>Nouveau mot de passe</h1>
+      <p class="subtitle">
+        Choisissez un nouveau mot de passe pour<br>
+        <span id="user-email" class="email-display"></span>
+      </p>
+
+      <form id="reset-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="new-password">Nouveau mot de passe</label>
+          <div class="input-wrapper">
+            <input type="password" id="new-password" placeholder="8 caracteres minimum" autocomplete="new-password">
+            <button type="button" class="toggle-password" onclick="togglePassword('new-password', this)">👁</button>
+          </div>
+          <div class="password-strength"><div id="strength-bar" class="password-strength-bar"></div></div>
+          <p id="error-password" class="error-text"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirmer le mot de passe</label>
+          <div class="input-wrapper">
+            <input type="password" id="confirm-password" placeholder="Confirmez votre mot de passe" autocomplete="new-password">
+            <button type="button" class="toggle-password" onclick="togglePassword('confirm-password', this)">👁</button>
+          </div>
+          <p id="error-confirm" class="error-text"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btn-reset" onclick="handleReset()">
+          Reinitialiser le mot de passe
+        </button>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div id="screen-success" class="screen">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <div class="status-icon">✅</div>
+      <h1>Mot de passe modifie !</h1>
+      <p class="subtitle">
+        Votre mot de passe a ete reinitialise avec succes.<br>
+        Vous pouvez maintenant vous connecter avec votre nouveau mot de passe dans l'application.
+      </p>
+    </div>
+
+    <!-- Error: expired/invalid link -->
+    <div id="screen-error" class="screen">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <h1>Lien invalide</h1>
+      <p class="subtitle" id="error-message">
+        Ce lien de reinitialisation a expire ou a deja ete utilise.
+        Veuillez demander un nouveau lien depuis l'application.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let actionCode = '';
+
+    function getUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        mode: params.get('mode'),
+        oobCode: params.get('oobCode'),
+        apiKey: params.get('apiKey'),
+      };
+    }
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-' + id).classList.add('active');
+    }
+
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🙈';
+      } else {
+        input.type = 'password';
+        btn.textContent = '👁';
+      }
+    }
+
+    // Password strength
+    document.addEventListener('DOMContentLoaded', function() {
+      const pwInput = document.getElementById('new-password');
+      if (pwInput) {
+        pwInput.addEventListener('input', function() {
+          const bar = document.getElementById('strength-bar');
+          const val = this.value;
+          let score = 0;
+          if (val.length >= 8) score++;
+          if (val.length >= 12) score++;
+          if (/[A-Z]/.test(val)) score++;
+          if (/[0-9]/.test(val)) score++;
+          if (/[^A-Za-z0-9]/.test(val)) score++;
+
+          const colors = ['#EF4444', '#F59E0B', '#F59E0B', '#22C55E', '#16A34A'];
+          const widths = ['20%', '40%', '60%', '80%', '100%'];
+
+          if (val.length === 0) {
+            bar.style.width = '0';
+          } else {
+            bar.style.width = widths[Math.min(score, 4)];
+            bar.style.background = colors[Math.min(score, 4)];
+          }
+        });
+      }
+    });
+
+    async function handleReset() {
+      const password = document.getElementById('new-password').value;
+      const confirm = document.getElementById('confirm-password').value;
+      const errorPw = document.getElementById('error-password');
+      const errorConfirm = document.getElementById('error-confirm');
+      const btn = document.getElementById('btn-reset');
+
+      // Reset errors
+      errorPw.classList.remove('visible');
+      errorConfirm.classList.remove('visible');
+      document.getElementById('new-password').classList.remove('error');
+      document.getElementById('confirm-password').classList.remove('error');
+
+      // Validate
+      if (password.length < 8) {
+        errorPw.textContent = 'Le mot de passe doit contenir au moins 8 caracteres';
+        errorPw.classList.add('visible');
+        document.getElementById('new-password').classList.add('error');
+        return;
+      }
+
+      if (password !== confirm) {
+        errorConfirm.textContent = 'Les mots de passe ne correspondent pas';
+        errorConfirm.classList.add('visible');
+        document.getElementById('confirm-password').classList.add('error');
+        return;
+      }
+
+      // Submit
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>';
+
+      try {
+        await firebase.auth().confirmPasswordReset(actionCode, password);
+        showScreen('success');
+      } catch (error) {
+        btn.disabled = false;
+        btn.textContent = 'Reinitialiser le mot de passe';
+
+        if (error.code === 'auth/weak-password') {
+          errorPw.textContent = 'Le mot de passe est trop faible. Utilisez au moins 8 caracteres avec des lettres et chiffres.';
+          errorPw.classList.add('visible');
+        } else if (error.code === 'auth/expired-action-code') {
+          showScreen('error');
+        } else {
+          errorPw.textContent = 'Une erreur est survenue. Veuillez reessayer.';
+          errorPw.classList.add('visible');
+        }
+      }
+    }
+
+    // Init
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = getUrlParams();
+
+      if (params.mode === 'resetPassword' && params.oobCode) {
+        actionCode = params.oobCode;
+
+        // Verify the code
+        firebase.auth().verifyPasswordResetCode(actionCode)
+          .then(function(email) {
+            document.getElementById('user-email').textContent = email;
+            showScreen('reset');
+          })
+          .catch(function() {
+            showScreen('error');
+          });
+      } else {
+        // Not a reset link, show home
+        showScreen('error');
+        document.getElementById('error-message').innerHTML =
+          'Bienvenue sur RoadTripPark !<br><br>Telechargez l\'application pour commencer votre aventure.';
+        document.querySelector('#screen-error h1').textContent = 'RoadTripPark';
+      }
+    });
+  </script>
+</body>
+</html>

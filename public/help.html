@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centre d'aide - RoadTripPark</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F5F0E8;
+      color: #1A1B25;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo-img {
+      width: 120px;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #6B7280;
+      line-height: 1.5;
+    }
+    .faq-item {
+      border-bottom: 1px solid #F3F4F6;
+      padding: 20px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 20px;
+      color: #9CA3AF;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question::after {
+      content: '-';
+    }
+    .faq-answer {
+      font-size: 14px;
+      color: #6B7280;
+      line-height: 1.6;
+      display: none;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    .contact-box {
+      background: #F5F0E8;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .contact-box h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 14px;
+      color: #6B7280;
+      margin-bottom: 16px;
+    }
+    .contact-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #E4D5B7;
+      color: #1A1B25;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .contact-btn:hover { opacity: 0.9; }
+    @media (max-width: 480px) {
+      .container { padding: 32px 24px; border-radius: 20px; }
+      body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <h1>Centre d'aide</h1>
+      <p class="subtitle">Trouvez des réponses à vos questions</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment créer un road trip ?
+      </div>
+      <div class="faq-answer">
+        Depuis l'onglet Roadtrip, appuyez sur le bouton "+" pour créer un nouveau voyage.
+        Ajoutez un titre, une description et vos étapes. Vous pouvez aussi partir d'un road trip
+        de la communauté depuis l'onglet Explorer.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment ajouter des photos à mon voyage ?
+      </div>
+      <div class="faq-answer">
+        Ouvrez votre road trip, puis accédez à la galerie. Vous pouvez prendre une photo directement
+        ou en importer depuis votre galerie. Les photos sont associées à l'étape en cours.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment fonctionne le mode hors ligne ?
+      </div>
+      <div class="faq-answer">
+        Les images que vous avez déjà consultées sont automatiquement mises en cache sur votre appareil.
+        Les tuiles de carte Mapbox sont également mises en cache. Un bandeau vous prévient quand vous
+        n'avez pas de connexion internet. Le mode hors-ligne complet est disponible avec le Roadtrip Pass ou l'abonnement Premium.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment modifier mon profil ?
+      </div>
+      <div class="faq-answer">
+        Allez dans l'onglet Profil et appuyez sur le bouton d'édition. Vous pouvez modifier votre
+        photo, votre nom d'affichage et votre biographie.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment supprimer mon compte ?
+      </div>
+      <div class="faq-answer">
+        Allez dans Paramètres &gt; Profil &gt; Supprimer mon compte. Cette action est irréversible et
+        supprimera toutes vos données, photos et road trips dans un délai de 30 jours.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        L'application est-elle gratuite ?
+      </div>
+      <div class="faq-answer">
+        RoadTripPark propose trois formules :
+        <br><br>
+        <strong>Gratuit :</strong> 1 road trip offert (Costa Dorada), galerie limitée à 30 photos, GPS activé.<br>
+        <strong>Roadtrip Pass (9,90 &euro;) :</strong> achat permanent d'un road trip + accès Premium pendant 3 mois (100 photos, amis, mode hors-ligne).<br>
+        <strong>Premium (29,90 &euro;/an) :</strong> tous les road trips, galerie illimitée, montage vidéo, support prioritaire.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment annuler mon abonnement ?
+      </div>
+      <div class="faq-answer">
+        L'abonnement Premium se renouvelle automatiquement chaque année. Pour l'annuler :
+        <br><br>
+        <strong>Android :</strong> Google Play Store &gt; Abonnements &gt; RoadTripPark &gt; Annuler.<br>
+        <strong>iOS :</strong> Réglages &gt; [votre nom] &gt; Abonnements &gt; RoadTripPark &gt; Annuler.
+        <br><br>
+        L'annulation prend effet à la fin de la période en cours. Vous conservez l'accès Premium jusqu'à la date d'expiration.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+        Comment partager mon road trip avec des amis ?
+      </div>
+      <div class="faq-answer">
+        Depuis la page de votre road trip, appuyez sur le bouton de partage. Vous pouvez inviter
+        des amis à rejoindre votre voyage ou partager un lien public vers votre journal de bord.
+        La fonctionnalité amis est disponible avec le Roadtrip Pass ou l'abonnement Premium.
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <h3>Besoin d'aide supplémentaire ?</h3>
+      <p>Notre équipe est là pour vous aider</p>
+      <a href="mailto:contact@roadtrippark.com?subject=Support%20RoadTripPark" class="contact-btn">
+        Nous contacter
+      </a>
+    </div>
+  </div>
+</body>
+</html>

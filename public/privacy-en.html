@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy - RoadTripPark</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F5F0E8;
+      color: #1A1B25;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo-img {
+      width: 120px;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .last-update {
+      font-size: 13px;
+      color: #9CA3AF;
+      margin-bottom: 8px;
+    }
+    .lang-switch {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .lang-switch a {
+      color: #4A90D9;
+      text-decoration: none;
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    p, li {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 6px; }
+    .highlight-box {
+      background: #F0FDF4;
+      border-left: 3px solid #22C55E;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .highlight-box p {
+      color: #166534;
+      margin-bottom: 0;
+    }
+    .contact-box {
+      background: #F5F0E8;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .contact-box p {
+      color: #6B7280;
+      margin-bottom: 8px;
+    }
+    .contact-box a {
+      color: #1A1B25;
+      font-weight: 600;
+    }
+    @media (max-width: 480px) {
+      .container { padding: 32px 24px; border-radius: 20px; }
+      body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <h1>Privacy Policy</h1>
+      <p class="last-update">Last updated: March 2026</p>
+      <p class="lang-switch"><a href="/privacy.html">Version française</a></p>
+    </div>
+
+    <p>
+      RoadTripPark is committed to protecting your privacy. This policy describes
+      the data we collect, how we use it, and your rights.
+    </p>
+
+    <h2>1. Data Controller</h2>
+    <p>
+      The data controller is:<br>
+      <strong>ARQDEV</strong><br>
+      SIRET: <!-- TODO: SIRET number --><br>
+      Registered office: <!-- TODO: full postal address --> Marseille, France<br>
+      Publication director: hichame-Dev<br>
+      Email: <a href="mailto:contact@roadtrippark.com">contact@roadtrippark.com</a>
+    </p>
+
+    <h2>2. Data Collected</h2>
+    <p>We collect the following data:</p>
+    <ul>
+      <li><strong>Account information:</strong> email address, display name, profile photo</li>
+      <li><strong>User content:</strong> photos, journal entries, road trip itineraries</li>
+      <li><strong>Technical data:</strong> device type, app version, language, crash reports (Firebase Crashlytics)</li>
+      <li><strong>Push notifications:</strong> device token (if you enable notifications)</li>
+      <li><strong>Location data:</strong> only while actively using the map</li>
+      <li><strong>Purchase data:</strong> subscription type (Premium, Roadtrip Pass). Payments are handled entirely by Google Play or the App Store — we never have access to your payment details</li>
+      <li><strong>Biometric authentication:</strong> if you enable Face ID, Touch ID, or fingerprint, this verification is performed locally on your device. No biometric data is collected or transmitted to our servers</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p>
+        <strong>We do NOT collect</strong> background location data.
+        The map and navigation only work while you are actively using the app.
+      </p>
+    </div>
+
+    <h2>3. Legal Basis for Processing</h2>
+    <p>In accordance with Article 6 of the GDPR, your data is processed on the following bases:</p>
+    <ul>
+      <li><strong>Performance of contract:</strong> providing the RoadTripPark service (account, road trips, gallery, social sharing)</li>
+      <li><strong>Consent:</strong> sending push notifications, using location</li>
+      <li><strong>Legitimate interest:</strong> service security, content moderation, app improvement</li>
+    </ul>
+
+    <h2>4. Use of Data</h2>
+    <p>Your data is used to:</p>
+    <ul>
+      <li>Provide and improve the RoadTripPark service</li>
+      <li>Display your road trips and shared content</li>
+      <li>Send push notifications (if enabled)</li>
+      <li>Ensure the security of your account</li>
+      <li>Moderate published content (automatic detection of inappropriate content)</li>
+    </ul>
+
+    <h2>5. Storage and Security</h2>
+    <ul>
+      <li><strong>Authentication:</strong> managed by Firebase Authentication (Google)</li>
+      <li><strong>Database:</strong> MongoDB with encryption at rest</li>
+      <li><strong>Photos:</strong> stored on Amazon S3, distributed via CloudFront (CDN)</li>
+      <li><strong>Password:</strong> never stored in plain text, managed by Firebase</li>
+    </ul>
+
+    <h2>6. Data Sharing and Processors</h2>
+    <p>
+      We never sell your personal data. Your data is only shared with
+      the technical services necessary for the app to function:
+    </p>
+    <ul>
+      <li><strong>Firebase (Google):</strong> authentication, push notifications, crash reports (Crashlytics)</li>
+      <li><strong>Amazon Web Services:</strong> photo storage (S3), distribution (CloudFront)</li>
+      <li><strong>AWS Rekognition:</strong> automatic photo content moderation</li>
+      <li><strong>Mapbox:</strong> map display and routing</li>
+      <li><strong>Google Maps:</strong> complementary mapping services</li>
+      <li><strong>RevenueCat:</strong> in-app purchase and subscription management</li>
+      <li><strong>Sentry:</strong> error tracking and performance monitoring</li>
+    </ul>
+
+    <h2>7. Transfers Outside the European Union</h2>
+    <p>
+      Some of our processors (Firebase/Google, Amazon Web Services, Mapbox) are
+      based in the United States. These transfers are governed by:
+    </p>
+    <ul>
+      <li>The EU-U.S. Data Privacy Framework</li>
+      <li>Standard contractual clauses approved by the European Commission</li>
+    </ul>
+
+    <h2>8. Data Retention</h2>
+    <ul>
+      <li><strong>Account data:</strong> retained as long as your account is active</li>
+      <li><strong>User content:</strong> retained as long as your account is active, deleted upon account deletion</li>
+      <li><strong>Technical data and crash reports:</strong> 12 months maximum</li>
+      <li><strong>Subscription data:</strong> retained while the subscription is active, deleted with the account</li>
+      <li><strong>Notification tokens:</strong> deleted when notifications are disabled or the account is deleted</li>
+    </ul>
+    <p>
+      After account deletion, all your data is erased within 30 days.
+    </p>
+
+    <h2>9. Your Rights</h2>
+    <p>Under the GDPR, you have the following rights:</p>
+    <ul>
+      <li><strong>Access:</strong> view your data from your profile</li>
+      <li><strong>Rectification:</strong> modify your information at any time</li>
+      <li><strong>Deletion:</strong> delete your account and all your data from Settings &gt; Profile &gt; Delete my account. Deletion is irreversible and all your data will be erased within 30 days</li>
+      <li><strong>Portability:</strong> request a copy of your data by email</li>
+      <li><strong>Objection:</strong> object to the processing of your data</li>
+      <li><strong>Restriction:</strong> request restriction of processing</li>
+      <li><strong>Withdrawal of consent:</strong> withdraw your consent at any time (notifications, location)</li>
+    </ul>
+    <p>
+      To exercise these rights, contact us at
+      <a href="mailto:contact@roadtrippark.com">contact@roadtrippark.com</a>.
+      You may also file a complaint with the
+      <strong>CNIL</strong> (French Data Protection Authority) or your local supervisory authority.
+    </p>
+
+    <h2>10. Cookies</h2>
+    <p>
+      The mobile app does not use cookies. The website roadtrippark.com
+      only uses technical cookies necessary for its operation (Firebase).
+    </p>
+
+    <h2>11. Children</h2>
+    <p>
+      RoadTripPark is not intended for children under 16. We do not knowingly
+      collect personal data from minors under 16.
+      If you are a parent and believe your child has provided us with data,
+      contact us so we can delete it.
+    </p>
+
+    <h2>12. Changes</h2>
+    <p>
+      This policy may be updated. In case of significant changes,
+      we will notify you through the app. The last update date is
+      shown at the top of this page.
+    </p>
+
+    <div class="contact-box">
+      <p>Questions about your data?</p>
+      <a href="mailto:contact@roadtrippark.com">contact@roadtrippark.com</a>
+    </div>
+  </div>
+</body>
+</html>
