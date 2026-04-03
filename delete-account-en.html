@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delete my account - RoadTripPark</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F5F0E8;
+      color: #1A1B25;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 640px;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo-img {
+      width: 120px;
+      height: auto;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .last-update {
+      font-size: 13px;
+      color: #9CA3AF;
+      margin-bottom: 8px;
+    }
+    .lang-switch {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .lang-switch a {
+      color: #4A90D9;
+      text-decoration: none;
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    p, li {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 6px; }
+    .highlight-box {
+      background: #FEF2F2;
+      border-left: 3px solid #EF4444;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .highlight-box p {
+      color: #991B1B;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    .steps-box {
+      background: #F0FDF4;
+      border-left: 3px solid #22C55E;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+    .steps-box ol {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+    .steps-box li {
+      color: #166534;
+    }
+    .contact-box {
+      background: #F5F0E8;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .contact-box p {
+      color: #6B7280;
+      margin-bottom: 8px;
+    }
+    .contact-box a {
+      color: #1A1B25;
+      font-weight: 600;
+    }
+    @media (max-width: 480px) {
+      .container { padding: 32px 24px; border-radius: 20px; }
+      body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="./logo.png" alt="RoadTripPark" class="logo-img">
+      <h1>Delete my account</h1>
+      <p class="last-update">Last updated: April 2026</p>
+      <p class="lang-switch"><a href="/delete-account.html">Version francaise</a></p>
+    </div>
+
+    <p>
+      In accordance with the GDPR (General Data Protection Regulation),
+      you can delete your RoadTripPark account and all your personal data
+      at any time.
+    </p>
+
+    <h2>Data deleted</h2>
+    <p>Deleting your account permanently erases:</p>
+    <ul>
+      <li><strong>User profile:</strong> name, email, profile picture, cover photo, preferences</li>
+      <li><strong>Photos and albums:</strong> all gallery photos and their files (Amazon S3)</li>
+      <li><strong>Trips:</strong> progress, completed stages, distance traveled, statistics</li>
+      <li><strong>Comments and likes</strong></li>
+      <li><strong>Friends:</strong> friends list, sent and received friend requests</li>
+      <li><strong>Notifications</strong></li>
+      <li><strong>Badges and trophies</strong></li>
+      <li><strong>Subscription:</strong> Premium or Roadtrip Pass (refunds must be requested through Google Play or the App Store)</li>
+      <li><strong>Device tokens</strong> (push notifications)</li>
+      <li><strong>Blocked users</strong></li>
+      <li><strong>Authentication account</strong> (Firebase)</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p>
+        This action is irreversible. Once your account is deleted,
+        your data cannot be recovered.
+      </p>
+    </div>
+
+    <h2>How to delete my account</h2>
+    <div class="steps-box">
+      <ol>
+        <li>Open the <strong>RoadTripPark</strong> app</li>
+        <li>Go to <strong>Profile</strong> (bottom right tab)</li>
+        <li>Tap the <strong>Settings</strong> icon (gear)</li>
+        <li>Scroll to the bottom of the page</li>
+        <li>Tap <strong>Delete account</strong> (red button)</li>
+        <li>Confirm the deletion</li>
+        <li>If your account is linked to an email: enter your password</li>
+        <li>If your account is linked to Google: confirm via the Google popup</li>
+      </ol>
+    </div>
+
+    <h2>Deletion by email</h2>
+    <p>
+      If you cannot access the app, you can request account deletion by email.
+      Send your request to
+      <a href="mailto:contact@roadtrippark.com">contact@roadtrippark.com</a>
+      with the email address associated with your account.
+    </p>
+    <p>
+      Processing time: <strong>72 hours maximum</strong>.
+    </p>
+
+    <h2>Active subscriptions</h2>
+    <p>
+      Deleting your account does not automatically cancel your store subscription.
+      To avoid future charges, cancel your subscription in the Google Play or
+      App Store settings before deleting your account.
+    </p>
+
+    <div class="contact-box">
+      <p>Questions about deleting your data?</p>
+      <a href="mailto:contact@roadtrippark.com">contact@roadtrippark.com</a>
+    </div>
+  </div>
+</body>
+</html>
