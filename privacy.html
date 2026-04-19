@@ -129,24 +129,39 @@
       <li><strong>Contenu utilisateur :</strong> photos, textes de journal, itinéraires de road trips</li>
       <li><strong>Données techniques :</strong> type d'appareil, version de l'application, langue, rapports de crash (Firebase Crashlytics)</li>
       <li><strong>Notifications push :</strong> token d'appareil (si vous activez les notifications)</li>
-      <li><strong>Données de localisation :</strong> uniquement lors de l'utilisation active de la carte</li>
+      <li><strong>Données de géolocalisation :</strong> collectées uniquement quand un road trip est actif et que l'application est ouverte (premier plan). Deux traitements distincts :
+        <ul>
+          <li><em>Validation d'étape (one-shot) :</em> lorsque vous appuyez sur « Terminer cette étape », votre position GPS ponctuelle (latitude, longitude) est envoyée au serveur pour vérifier que vous êtes à moins de 20 km du point attendu (anti-triche). Ce point n'est pas conservé après vérification.</li>
+          <li><em>Tracé du road trip (breadcrumb) :</em> pendant qu'un road trip est actif, votre position est enregistrée toutes les 30 secondes sous forme de points (latitude, longitude, horodatage, cap, vitesse), jusqu'à 50 000 points maximum par road trip. Ces points forment le tracé jaune affiché sur votre carte.</li>
+        </ul>
+      </li>
       <li><strong>Données d'achat :</strong> type d'abonnement souscrit (Premium, Roadtrip Pass). Les paiements sont gérés entièrement par Google Play ou l'App Store — nous n'avons jamais accès à vos coordonnées bancaires</li>
       <li><strong>Authentification biométrique :</strong> si vous activez Face ID, Touch ID ou l'empreinte digitale, cette vérification est effectuée localement sur votre appareil. Aucune donnée biométrique n'est collectée ni transmise à nos serveurs</li>
     </ul>
 
     <div class="highlight-box">
       <p>
-        <strong>Nous ne collectons PAS</strong> de données de localisation en arrière-plan.
-        La carte et la navigation fonctionnent uniquement quand vous utilisez l'application.
+        <strong>Pas de géolocalisation en arrière-plan.</strong> L'application utilise uniquement la permission Android <code>ACCESS_FINE_LOCATION</code>, active lorsque l'app est ouverte. La permission <code>ACCESS_BACKGROUND_LOCATION</code> n'est jamais demandée. Vous pouvez révoquer l'autorisation à tout moment depuis les paramètres de votre téléphone : les fonctions carte et validation d'étape seront désactivées, mais le reste de l'application continue à fonctionner.
+      </p>
+      <p style="margin-top: 8px;">
+        <strong>Les données GPS ne sont jamais partagées</strong> avec des annonceurs, services d'analytics, amis ou tiers. Elles transitent uniquement entre l'application et nos serveurs.
       </p>
     </div>
 
     <h2>3. Base légale du traitement</h2>
     <p>Conformément à l'article 6 du RGPD, vos données sont traitées sur les bases suivantes :</p>
     <ul>
-      <li><strong>Exécution du contrat :</strong> fournir le service RoadTripPark (compte, road trips, galerie, partage social)</li>
-      <li><strong>Consentement :</strong> envoi de notifications push, utilisation de la localisation</li>
+      <li><strong>Exécution du contrat :</strong> fournir le service RoadTripPark (compte, road trips, galerie, partage social, géolocalisation nécessaire au fonctionnement du road trip)</li>
+      <li><strong>Consentement :</strong> envoi de notifications push</li>
       <li><strong>Intérêt légitime :</strong> sécurité du service, modération du contenu, amélioration de l'application</li>
+    </ul>
+
+    <h2>3bis. Finalités et base légale de la géolocalisation</h2>
+    <p>Les données GPS collectées servent exclusivement aux finalités suivantes, toutes fondées sur l'<strong>exécution du contrat</strong> (articles 6.1.b du RGPD) — ces traitements sont nécessaires pour que l'application puisse remplir sa fonction de road trip :</p>
+    <ul>
+      <li><strong>Tracé du road trip :</strong> constituer le journal visuel de votre voyage (breadcrumb affiché en jaune sur la carte).</li>
+      <li><strong>Validation d'étape :</strong> vérifier que vous êtes effectivement sur place avant de valider une étape (anti-triche pour badges et progression).</li>
+      <li><strong>Synchronisation multi-appareils :</strong> retrouver votre tracé sur un autre appareil connecté au même compte.</li>
     </ul>
 
     <h2>4. Utilisation des données</h2>
@@ -162,7 +177,8 @@
     <h2>5. Stockage et sécurité</h2>
     <ul>
       <li><strong>Authentification :</strong> gérée par Firebase Authentication (Google)</li>
-      <li><strong>Base de données :</strong> MongoDB avec chiffrement au repos</li>
+      <li><strong>Base de données :</strong> MongoDB Atlas, hébergée sur AWS Paris (eu-west-3), Union Européenne, avec chiffrement au repos</li>
+      <li><strong>Tracés GPS (breadcrumbs) :</strong> stockés dans MongoDB Atlas AWS Paris (eu-west-3), Union Européenne, chiffrement au repos</li>
       <li><strong>Photos :</strong> stockées sur Amazon S3, distribuées via CloudFront (CDN)</li>
       <li><strong>Mot de passe :</strong> jamais stocké en clair, géré par Firebase</li>
     </ul>
@@ -196,6 +212,7 @@
     <ul>
       <li><strong>Données de compte :</strong> conservées tant que votre compte est actif</li>
       <li><strong>Contenu utilisateur :</strong> conservé tant que votre compte est actif, supprimé lors de la suppression du compte</li>
+      <li><strong>Tracés GPS (breadcrumbs) :</strong> conservés tant que le road trip correspondant existe dans votre compte. Supprimés définitivement lorsque vous supprimez le road trip ou votre compte.</li>
       <li><strong>Données techniques et crash reports :</strong> 12 mois maximum</li>
       <li><strong>Données d'abonnement :</strong> conservées tant que l'abonnement est actif, supprimées avec le compte</li>
       <li><strong>Tokens de notification :</strong> supprimés dès la désactivation des notifications ou la suppression du compte</li>
@@ -213,7 +230,7 @@
       <li><strong>Portabilité :</strong> demander une copie de vos données par email</li>
       <li><strong>Opposition :</strong> vous opposer au traitement de vos données</li>
       <li><strong>Limitation :</strong> demander la limitation du traitement</li>
-      <li><strong>Retrait du consentement :</strong> retirer votre consentement à tout moment (notifications, localisation)</li>
+      <li><strong>Retrait du consentement :</strong> retirer votre consentement à tout moment pour les notifications push. Pour la géolocalisation (traitée sur la base de l'exécution du contrat), vous pouvez révoquer la permission Android à tout moment : les fonctions road trip seront désactivées mais le reste de l'application reste utilisable.</li>
     </ul>
     <p>
       Pour exercer ces droits, contactez-nous à
