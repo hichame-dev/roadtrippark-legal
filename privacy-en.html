@@ -116,9 +116,9 @@
     <p>
       The data controller is:<br>
       <strong>ARQDEV</strong><br>
-      SIRET: 103 552 063 00010<br>
-      Registered office: Marseille, France<br>
-      Publication director: ARQDEV<br>
+      SIRET: <!-- TODO: SIRET number --><br>
+      Registered office: <!-- TODO: full postal address --> Marseille, France<br>
+      Publication director: hichame-Dev<br>
       Email: <a href="mailto:contact@roadtrippark.com">contact@roadtrippark.com</a>
     </p>
 
@@ -129,40 +129,24 @@
       <li><strong>User content:</strong> photos, journal entries, road trip itineraries</li>
       <li><strong>Technical data:</strong> device type, app version, language, crash reports (Firebase Crashlytics)</li>
       <li><strong>Push notifications:</strong> device token (if you enable notifications)</li>
-      <li><strong>Geolocation data:</strong> collected only when a road trip is active and the app is open (foreground). Two distinct processes:
-        <ul>
-          <li><em>Stage validation (one-shot):</em> when you tap "Complete this stage", your current GPS position (latitude, longitude) is sent to the server to verify you are within 20 km of the expected point (anti-cheat). This point is not stored after verification.</li>
-          <li><em>Road trip trace (breadcrumb):</em> while a road trip is active, your position is recorded every 30 seconds as points (latitude, longitude, timestamp, heading, speed), up to 50,000 points maximum per road trip. These points form the yellow trace displayed on your map.</li>
-        </ul>
-      </li>
-      <li><strong>Social data:</strong> friends list, friend requests, published comments, likes, reports. This data is visible to other users according to the app's social features.</li>
-      <li><strong>Purchase data:</strong> type of access purchased (Roadtrip Pass or annual subscription). Payments are handled entirely by Google Play — we never have access to your payment details</li>
+      <li><strong>Location data:</strong> only while actively using the map</li>
+      <li><strong>Purchase data:</strong> subscription type (Premium, Roadtrip Pass). Payments are handled entirely by Google Play or the App Store — we never have access to your payment details</li>
       <li><strong>Biometric authentication:</strong> if you enable Face ID, Touch ID, or fingerprint, this verification is performed locally on your device. No biometric data is collected or transmitted to our servers</li>
     </ul>
 
     <div class="highlight-box">
       <p>
-        <strong>No background geolocation.</strong> The app only uses the Android <code>ACCESS_FINE_LOCATION</code> permission, active while the app is open. The <code>ACCESS_BACKGROUND_LOCATION</code> permission is never requested. You can revoke this permission at any time from your phone settings: map and stage-validation features will be disabled, but the rest of the app continues to work.
-      </p>
-      <p style="margin-top: 8px;">
-        <strong>GPS data is never shared</strong> with advertisers, analytics services, friends or third parties. It is exchanged only between the app and our servers.
+        <strong>We do NOT collect</strong> background location data.
+        The map and navigation only work while you are actively using the app.
       </p>
     </div>
 
     <h2>3. Legal Basis for Processing</h2>
     <p>In accordance with Article 6 of the GDPR, your data is processed on the following bases:</p>
     <ul>
-      <li><strong>Performance of contract:</strong> providing the RoadTripPark service (account, road trips, gallery, social sharing, geolocation required for road trip functionality)</li>
-      <li><strong>Consent:</strong> sending push notifications</li>
+      <li><strong>Performance of contract:</strong> providing the RoadTripPark service (account, road trips, gallery, social sharing)</li>
+      <li><strong>Consent:</strong> sending push notifications, using location</li>
       <li><strong>Legitimate interest:</strong> service security, content moderation, app improvement</li>
-    </ul>
-
-    <h2>3bis. Purposes and Legal Basis for Geolocation</h2>
-    <p>GPS data collected is used exclusively for the following purposes, all based on the <strong>performance of contract</strong> (Article 6.1.b of the GDPR) — these processes are necessary for the app to fulfil its road-trip function:</p>
-    <ul>
-      <li><strong>Road trip trace:</strong> building the visual journal of your trip (yellow breadcrumb on the map).</li>
-      <li><strong>Stage validation:</strong> checking that you are actually on site before validating a stage (anti-cheat for badges and progression).</li>
-      <li><strong>Multi-device sync:</strong> retrieving your trace on another device signed into the same account.</li>
     </ul>
 
     <h2>4. Use of Data</h2>
@@ -178,8 +162,7 @@
     <h2>5. Storage and Security</h2>
     <ul>
       <li><strong>Authentication:</strong> managed by Firebase Authentication (Google)</li>
-      <li><strong>Database:</strong> MongoDB Atlas hosted on AWS Paris (eu-west-3), European Union, with encryption at rest</li>
-      <li><strong>GPS traces (breadcrumbs):</strong> stored in MongoDB Atlas AWS Paris (eu-west-3), European Union, encrypted at rest</li>
+      <li><strong>Database:</strong> MongoDB with encryption at rest</li>
       <li><strong>Photos:</strong> stored on Amazon S3, distributed via CloudFront (CDN)</li>
       <li><strong>Password:</strong> never stored in plain text, managed by Firebase</li>
     </ul>
@@ -191,12 +174,14 @@
     </p>
     <ul>
       <li><strong>Firebase (Google):</strong> authentication, push notifications, crash reports (Crashlytics)</li>
-      <li><strong>Amazon Web Services:</strong> photo storage (S3), distribution (CloudFront), MongoDB Atlas database (eu-west-3, Paris)</li>
+      <li><strong>Amazon Web Services:</strong> photo storage (S3), distribution (CloudFront)</li>
       <li><strong>AWS Rekognition:</strong> automatic photo content moderation</li>
-      <li><strong>Railway:</strong> backend server hosting (EU region)</li>
       <li><strong>Mapbox:</strong> map display and routing</li>
       <li><strong>Google Maps:</strong> complementary mapping services</li>
       <li><strong>RevenueCat:</strong> in-app purchase and subscription management</li>
+      <li><strong>Railway:</strong> backend server hosting</li>
+      <li><strong>MongoDB Atlas (MongoDB Inc.):</strong> database (EU West region)</li>
+      <li><strong>Sentry:</strong> error tracking and performance monitoring (backend)</li>
     </ul>
 
     <h2>7. Transfers Outside the European Union</h2>
@@ -213,11 +198,10 @@
     <ul>
       <li><strong>Account data:</strong> retained as long as your account is active</li>
       <li><strong>User content:</strong> retained as long as your account is active, deleted upon account deletion</li>
-      <li><strong>GPS traces (breadcrumbs):</strong> retained as long as the corresponding road trip exists in your account. Permanently deleted when you delete the road trip or your account.</li>
       <li><strong>Technical data and crash reports:</strong> 12 months maximum</li>
       <li><strong>Subscription data:</strong> retained while the subscription is active, deleted with the account</li>
-      <li><strong>Transaction data (Roadtrip Pass and annual subscription):</strong> retained for 10 years in accordance with legal accounting obligations</li>
       <li><strong>Notification tokens:</strong> deleted when notifications are disabled or the account is deleted</li>
+      <li><strong>Notification history:</strong> retained for 90 days, then automatically deleted</li>
     </ul>
     <p>
       After account deletion, all your data is erased within 30 days.
@@ -232,7 +216,7 @@
       <li><strong>Portability:</strong> request a copy of your data by email</li>
       <li><strong>Objection:</strong> object to the processing of your data</li>
       <li><strong>Restriction:</strong> request restriction of processing</li>
-      <li><strong>Withdrawal of consent:</strong> withdraw your consent at any time for push notifications. For geolocation (processed on the basis of performance of contract), you can revoke the Android permission at any time: road-trip features will be disabled, but the rest of the app remains usable.</li>
+      <li><strong>Withdrawal of consent:</strong> withdraw your consent at any time (notifications, location)</li>
     </ul>
     <p>
       To exercise these rights, contact us at

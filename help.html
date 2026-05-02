@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Centre d'aide - RoadTripPark</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #F5F0E8;
@@ -19,49 +13,39 @@
       min-height: 100vh;
       padding: 20px;
     }
-
     .container {
       background: #FFFFFF;
       border-radius: 24px;
       padding: 40px 32px;
       max-width: 640px;
       margin: 0 auto;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
-
     .header {
       text-align: center;
       margin-bottom: 32px;
     }
-
     .logo-img {
       width: 120px;
       height: auto;
       border-radius: 16px;
       margin-bottom: 16px;
     }
-
     h1 {
       font-size: 24px;
       font-weight: 700;
       margin-bottom: 8px;
     }
-
     .subtitle {
       font-size: 14px;
       color: #6B7280;
       line-height: 1.5;
     }
-
     .faq-item {
       border-bottom: 1px solid #F3F4F6;
       padding: 20px 0;
     }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
+    .faq-item:last-child { border-bottom: none; }
     .faq-question {
       font-size: 16px;
       font-weight: 600;
@@ -71,29 +55,24 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .faq-question::after {
       content: '+';
       font-size: 20px;
       color: #9CA3AF;
       transition: transform 0.2s;
     }
-
     .faq-item.open .faq-question::after {
       content: '-';
     }
-
     .faq-answer {
       font-size: 14px;
       color: #6B7280;
       line-height: 1.6;
       display: none;
     }
-
     .faq-item.open .faq-answer {
       display: block;
     }
-
     .contact-box {
       background: #F5F0E8;
       border-radius: 16px;
@@ -101,19 +80,16 @@
       text-align: center;
       margin-top: 32px;
     }
-
     .contact-box h3 {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 8px;
     }
-
     .contact-box p {
       font-size: 14px;
       color: #6B7280;
       margin-bottom: 16px;
     }
-
     .contact-btn {
       display: inline-block;
       padding: 12px 24px;
@@ -124,24 +100,13 @@
       font-weight: 600;
       font-size: 14px;
     }
-
-    .contact-btn:hover {
-      opacity: 0.9;
-    }
-
+    .contact-btn:hover { opacity: 0.9; }
     @media (max-width: 480px) {
-      .container {
-        padding: 32px 24px;
-        border-radius: 20px;
-      }
-
-      body {
-        padding: 16px;
-      }
+      .container { padding: 32px 24px; border-radius: 20px; }
+      body { padding: 16px; }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
     <div class="header">
@@ -157,28 +122,19 @@
       <div class="faq-answer">
         RoadTripPark propose des road trips clé en main, déjà conçus et testés. Voici comment en lancer un :
         <br><br>
-        <strong>1. Choisissez votre road trip.</strong> Depuis l'onglet <em>Explorer</em>, parcourez les itinéraires
-        disponibles. Le road trip <em>Costa Dorada</em> est offert ; les autres nécessitent le Roadtrip Pass ou l'abonnement annuel.
+        <strong>1. Choisissez votre road trip.</strong> Depuis l'onglet <em>Explorer</em>, parcourez les itinéraires disponibles. Le road trip <em>Costa Dorada</em> est offert ; les autres nécessitent le Roadtrip Pass ou Premium.
         <br><br>
-        <strong>2. Ouvrez la fiche détaillée.</strong> Vous y trouverez les étapes, distances, durée totale, parkings,
-        campings et points d'intérêt.
+        <strong>2. Ouvrez la fiche détaillée.</strong> Vous y trouverez les étapes, distances, durée totale, parkings, campings et points d'intérêt.
         <br><br>
-        <strong>3. Lancez le road trip.</strong> Appuyez sur <em>Démarrer ce road trip</em>. Une fenêtre de confirmation
-        s'affiche. Une fois lancé, le road trip devient actif dans l'onglet <em>Roadtrip</em>.
+        <strong>3. Lancez le road trip.</strong> Appuyez sur <em>Démarrer ce road trip</em>. Une fenêtre de confirmation s'affiche. Une fois lancé, le road trip devient actif dans l'onglet <em>Roadtrip</em>.
         <br><br>
-        <strong>4. Suivez la route en temps réel.</strong> Votre position GPS s'affiche sur la carte. Lorsque vous
-        arrivez à moins d'1 km d'une étape, l'application vous envoie une notification et bascule automatiquement
-        l'affichage sur cette étape.
+        <strong>4. Suivez la route en temps réel.</strong> Votre position GPS s'affiche sur la carte. Lorsque vous arrivez à moins d'1 km d'une étape, l'application vous envoie une notification et bascule automatiquement l'affichage sur cette étape.
         <br><br>
-        <strong>5. Validez l'étape sur place.</strong> Une fois sur place, appuyez sur <em>Terminer cette étape</em> et
-        confirmez. L'app vérifie votre position GPS pour valider la proximité. Si vous êtes trop loin, la validation est
-        refusée.
+        <strong>5. Validez l'étape sur place.</strong> Une fois sur place, appuyez sur <em>Terminer cette étape</em> et confirmez. L'app vérifie votre position GPS pour valider la proximité. Si vous êtes trop loin, la validation est refusée.
         <br><br>
-        <strong>6. Capturez votre voyage.</strong> Prenez des photos depuis l'onglet <em>Galerie</em> en créant un
-        album dédié à votre voyage. Vous les retrouverez ensuite dans le journal de bord du road trip.
+        <strong>6. Capturez votre voyage.</strong> Prenez des photos depuis l'onglet <em>Galerie</em> en créant un album dédié à votre voyage. Vous les retrouverez ensuite dans le journal de bord du road trip.
         <br><br>
-        <strong>7. Terminez le road trip.</strong> Une fois la dernière étape validée, vous pouvez marquer le road trip
-        comme terminé et revoir tout votre parcours dans le journal de bord.
+        <strong>7. Terminez le road trip.</strong> Une fois la dernière étape validée, vous pouvez marquer le road trip comme terminé et revoir tout votre parcours dans le journal de bord.
       </div>
     </div>
 
@@ -187,11 +143,11 @@
         Comment ajouter des photos à mon voyage ?
       </div>
       <div class="faq-answer">
-        Ouvrez l'onglet <em>Galerie</em>, créez un album (ou ouvrez-en un existant), puis appuyez sur le bouton d'ajout
-        pour importer une photo depuis la bibliothèque ou la prendre avec l'appareil photo.
+        Ouvrez l'onglet <em>Galerie</em>, créez un album (ou ouvrez-en un existant), puis appuyez sur le bouton d'ajout pour importer une photo depuis la bibliothèque ou la prendre avec l'appareil photo.
         <br><br>
-        Les photos sont organisées par album, pas directement liées à une étape précise. Vous pouvez ensuite les
-        retrouver dans le journal de bord du road trip.
+        Les photos sont organisées par album, pas directement liées à une étape précise. Vous pouvez ensuite les retrouver dans le journal de bord du road trip.
+        <br><br>
+        Limites par formule : 30 photos (Gratuit), 100 photos (Roadtrip Pass), illimité (Premium).
       </div>
     </div>
 
@@ -200,12 +156,9 @@
         Comment fonctionne le mode hors ligne ?
       </div>
       <div class="faq-answer">
-        Lorsque vous perdez la connexion, un bandeau rouge apparaît en haut de l'écran pour vous prévenir. Les images
-        déjà consultées restent visibles grâce au cache automatique.
+        Lorsque vous perdez la connexion, un bandeau rouge apparaît en haut de l'écran pour vous prévenir. Les images déjà consultées restent visibles grâce au cache automatique.
         <br><br>
-        Pour disposer d'un road trip entièrement utilisable hors connexion, ouvrez sa fiche depuis l'onglet
-        <em>Explorer</em> et lancez le téléchargement manuel via la modal de mise en cache. Cette fonctionnalité
-        nécessite le Roadtrip Pass ou l'abonnement annuel.
+        Pour disposer d'un road trip entièrement utilisable hors connexion, ouvrez sa fiche depuis l'onglet <em>Explorer</em> et lancez le téléchargement manuel via la modal de mise en cache. Cette fonctionnalité nécessite le Roadtrip Pass ou l'abonnement Premium.
       </div>
     </div>
 
@@ -216,11 +169,9 @@
       <div class="faq-answer">
         Les éléments de votre profil se modifient à deux endroits :
         <br><br>
-        <strong>Photo de profil et biographie :</strong> dans l'onglet <em>Profil</em>. Appuyez sur votre photo pour la
-        changer, et sur la zone biographie pour la modifier directement.
+        <strong>Photo de profil et biographie :</strong> dans l'onglet <em>Profil</em>. Appuyez sur votre photo pour la changer, et sur la zone biographie pour la modifier directement.
         <br><br>
-        <strong>Pseudo (nom d'affichage) :</strong> dans <em>Paramètres &gt; Profil &gt; Pseudo</em>. Une fenêtre vous
-        permet de le modifier.
+        <strong>Pseudo (nom d'affichage) :</strong> dans <em>Paramètres &gt; Profil &gt; Pseudo</em>. Une fenêtre vous permet de le modifier.
       </div>
     </div>
 
@@ -229,11 +180,9 @@
         Comment supprimer mon compte ?
       </div>
       <div class="faq-answer">
-        Allez dans <em>Paramètres &gt; Compte &gt; Supprimer mon compte</em>. Confirmez en saisissant votre mot de
-        passe.
+        Allez dans <em>Paramètres &gt; Compte &gt; Supprimer mon compte</em>. Confirmez en saisissant votre mot de passe.
         <br><br>
-        La suppression est <strong>immédiate et irréversible</strong> : votre compte, vos photos, vos road trips, vos
-        amis et toutes vos données associées sont effacés sans délai.
+        La suppression est <strong>immédiate et irréversible</strong> : votre compte, vos photos, vos road trips, vos amis et toutes vos données associées sont effacés sans délai.
       </div>
     </div>
 
@@ -244,14 +193,9 @@
       <div class="faq-answer">
         RoadTripPark propose trois formules :
         <br><br>
-        <strong>Gratuit :</strong> accès au road trip Costa Dorada, carte live et validation d'étape activées.<br>
-        <strong>Roadtrip Pass (7,90 &euro;) :</strong> 1 an d'accès à UN road trip au choix. Achat ponctuel via Google
-        Play, sans reconduction automatique.<br>
-        <strong>Abonnement annuel (39,90 &euro;/an) :</strong> 1 an d'accès aux 26 road trips du catalogue. Reconduction
-        tacite annuelle, résiliable à tout moment.
-        <br><br>
-        À l'expiration, le road trip et sa carte live sont verrouillés. Votre profil, votre galerie et la carte de
-        relecture restent accessibles.
+        <strong>Gratuit :</strong> 1 road trip offert (Costa Dorada), galerie limitée à 30 photos, GPS activé, accès aux amis.<br>
+        <strong>Roadtrip Pass (7,90 &euro;) :</strong> débloque 1 road trip pendant 1 an (map hors-ligne, 100 photos dédiées).<br>
+        <strong>Premium (39,90 &euro;/an) :</strong> accès aux 26 road trips, galerie illimitée, montage vidéo, support prioritaire.
       </div>
     </div>
 
@@ -260,12 +204,12 @@
         Comment annuler mon abonnement ?
       </div>
       <div class="faq-answer">
-        <strong>Abonnement annuel (39,90 €/an) :</strong> reconduction tacite. Pour annuler, allez dans Google Play
-        Store &gt; Abonnements &gt; RoadTripPark &gt; Annuler. La résiliation prend effet à la fin de la période en cours :
-        vous conservez l'accès jusqu'à la date d'expiration.
+        L'abonnement Premium se renouvelle automatiquement chaque année. Pour l'annuler :
         <br><br>
-        <strong>Roadtrip Pass (7,90 €) :</strong> achat unique sans reconduction (Non-Renewing Subscription). Aucune
-        résiliation n'est nécessaire : l'accès prend fin automatiquement à la fin de l'année, sans nouveau prélèvement.
+        <strong>Android :</strong> Google Play Store &gt; Abonnements &gt; RoadTripPark &gt; Annuler.<br>
+        <strong>iOS :</strong> Réglages &gt; [votre nom] &gt; Abonnements &gt; RoadTripPark &gt; Annuler.
+        <br><br>
+        L'annulation prend effet à la fin de la période en cours. Vous conservez l'accès Premium jusqu'à la date d'expiration.
       </div>
     </div>
 
@@ -274,14 +218,11 @@
         Comment partager mon road trip avec des amis ?
       </div>
       <div class="faq-answer">
-        Vous pouvez rendre votre road trip <em>public</em> ou <em>privé</em> depuis la fiche du voyage en cours.
-        Lorsqu'il est public, vos amis peuvent consulter votre journal de bord et vos photos.
+        Vous pouvez rendre votre road trip <em>public</em> ou <em>privé</em> depuis la fiche du voyage en cours. Lorsqu'il est public, vos amis peuvent consulter votre journal de bord et vos photos.
         <br><br>
-        Pour ajouter et gérer vos amis, ouvrez l'onglet <em>Amis</em> depuis votre profil. Cette fonctionnalité
-        nécessite le Roadtrip Pass ou l'abonnement annuel.
+        Pour ajouter et gérer vos amis, ouvrez l'onglet <em>Amis</em> depuis votre profil. Cette fonctionnalité nécessite le Roadtrip Pass ou l'abonnement Premium.
         <br><br>
-        Vous pouvez également partager le montage vidéo de votre voyage depuis l'écran <em>Montage vidéo</em>, via les
-        options de partage natives de votre téléphone.
+        Vous pouvez également partager le montage vidéo de votre voyage depuis l'écran <em>Montage vidéo</em>, via les options de partage natives de votre téléphone.
       </div>
     </div>
 
@@ -294,5 +235,4 @@
     </div>
   </div>
 </body>
-
 </html>
