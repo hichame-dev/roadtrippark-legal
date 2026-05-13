@@ -126,8 +126,9 @@
     <p>Nous collectons les données suivantes :</p>
     <ul>
       <li><strong>Informations de compte :</strong> adresse email, nom d'affichage, photo de profil</li>
-      <li><strong>Contenu utilisateur :</strong> photos, textes de journal, itinéraires de road trips</li>
+      <li><strong>Contenu utilisateur :</strong> photos, textes de journal, itinéraires de road trips. Les photos publiées sont analysées automatiquement par AWS Rekognition pour détecter les contenus inappropriés (modération).</li>
       <li><strong>Données techniques :</strong> type d'appareil, version de l'application, langue, rapports de crash (Firebase Crashlytics)</li>
+      <li><strong>Données d'usage :</strong> interactions avec l'application, écrans consultés, durées de session — collectées via Firebase Analytics pour améliorer le service</li>
       <li><strong>Notifications push :</strong> token d'appareil (si vous activez les notifications)</li>
       <li><strong>Données de géolocalisation :</strong> collectées uniquement quand un road trip est actif et que l'application est ouverte (premier plan). Deux traitements distincts :
         <ul>
@@ -190,7 +191,7 @@
       qu'avec les services techniques nécessaires au fonctionnement de l'application :
     </p>
     <ul>
-      <li><strong>Firebase (Google) :</strong> authentification, notifications push, rapports de crash (Crashlytics)</li>
+      <li><strong>Firebase (Google) :</strong> authentification, notifications push, rapports de crash (Crashlytics), analytics d'usage (Analytics)</li>
       <li><strong>Amazon Web Services :</strong> stockage des photos (S3), distribution (CloudFront), base de données MongoDB Atlas (eu-west-3, Paris)</li>
       <li><strong>AWS Rekognition :</strong> modération automatique du contenu photo</li>
       <li><strong>Railway :</strong> hébergement du serveur backend (région EU)</li>
@@ -220,7 +221,7 @@
       <li><strong>Tokens de notification :</strong> supprimés dès la désactivation des notifications ou la suppression du compte</li>
     </ul>
     <p>
-      Après suppression de votre compte, toutes vos données sont effacées dans un délai de 30 jours.
+      Après suppression de votre compte, toutes vos données sont supprimées immédiatement de nos serveurs actifs. Les sauvegardes chiffrées sont purgées dans un délai de 90 jours maximum.
     </p>
 
     <h2>9. Vos droits</h2>

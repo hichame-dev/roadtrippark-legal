@@ -104,7 +104,7 @@
       <img src="./logo.png" alt="RoadTripPark" class="logo-img">
       <h1>Privacy Policy</h1>
       <p class="last-update">Last updated: March 2026</p>
-      <p class="lang-switch"><a href="/privacy.html">Version française</a></p>
+      <p class="lang-switch"><a href="./privacy.html">Version française</a></p>
     </div>
 
     <p>
@@ -126,8 +126,9 @@
     <p>We collect the following data:</p>
     <ul>
       <li><strong>Account information:</strong> email address, display name, profile photo</li>
-      <li><strong>User content:</strong> photos, journal entries, road trip itineraries</li>
+      <li><strong>User content:</strong> photos, journal entries, road trip itineraries. Published photos are automatically analysed by AWS Rekognition to detect inappropriate content (moderation).</li>
       <li><strong>Technical data:</strong> device type, app version, language, crash reports (Firebase Crashlytics)</li>
+      <li><strong>Usage data:</strong> app interactions, screens viewed, session duration — collected via Firebase Analytics to improve the service</li>
       <li><strong>Push notifications:</strong> device token (if you enable notifications)</li>
       <li><strong>Geolocation data:</strong> collected only when a road trip is active and the app is open (foreground). Two distinct processes:
         <ul>
@@ -190,7 +191,7 @@
       the technical services necessary for the app to function:
     </p>
     <ul>
-      <li><strong>Firebase (Google):</strong> authentication, push notifications, crash reports (Crashlytics)</li>
+      <li><strong>Firebase (Google):</strong> authentication, push notifications, crash reports (Crashlytics), usage analytics (Analytics)</li>
       <li><strong>Amazon Web Services:</strong> photo storage (S3), distribution (CloudFront), MongoDB Atlas database (eu-west-3, Paris)</li>
       <li><strong>AWS Rekognition:</strong> automatic photo content moderation</li>
       <li><strong>Railway:</strong> backend server hosting (EU region)</li>
@@ -220,7 +221,7 @@
       <li><strong>Notification tokens:</strong> deleted when notifications are disabled or the account is deleted</li>
     </ul>
     <p>
-      After account deletion, all your data is erased within 30 days.
+      After account deletion, all your data is deleted immediately from our active servers. Encrypted backups are purged within 90 days maximum.
     </p>
 
     <h2>9. Your Rights</h2>
